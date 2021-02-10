@@ -5,11 +5,10 @@ import marked from "marked";
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      input:
-        "# H1\n\n## H2\n\n[link](http://github.com)\n\n`inline code`\n\n```\ncode block\n```\n\n* list item\n\n> block quote\n\n![image](/images/image.png)\n\n**bolded text**",
-      preview: ""
-    };
+    this.state = {};
+    this.state.input =
+      "# H1\n\n## H2\n\n[link](http://github.com)\n\n`inline code`\n\n```\ncode block\n```\n\n* list item\n\n> block quote\n\n![image](/images/image.png)\n\n**bolded text**";
+    this.state.preview = marked(this.state.input);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -17,12 +16,6 @@ export default class App extends Component {
     this.setState({
       input: event.target.value,
       preview: marked(event.target.value)
-    });
-  }
-
-  componentDidMount() {
-    this.setState({
-      preview: marked(this.state.input)
     });
   }
 
