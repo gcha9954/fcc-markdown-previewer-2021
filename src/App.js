@@ -1,6 +1,12 @@
 import "./styles.css";
 import { Component } from "react";
+import DOMPurify from "dompurify";
 import marked from "marked";
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+  sanitize: true
+});
 
 export default class App extends Component {
   constructor(props) {
@@ -32,7 +38,9 @@ export default class App extends Component {
           <h2>Preview</h2>
           <div
             id="preview"
-            dangerouslySetInnerHTML={{ __html: this.state.preview }}
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(this.state.preview)
+            }}
           ></div>
         </div>
       </div>
