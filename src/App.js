@@ -30,7 +30,9 @@ export default class App extends Component {
       <>
         <header>
           <h1 id="title">Markdown Previewer</h1>
-          <a href="#">GitHub</a>
+          <a href="https://github.com/gcha9954/fcc-markdown-previewer-2021">
+            GitHub
+          </a>
         </header>
         <div className="container">
           <div className="subcontainer">
