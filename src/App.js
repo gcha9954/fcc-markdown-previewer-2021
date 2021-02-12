@@ -27,23 +27,29 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div>
-          <h2>Input</h2>
-          <textarea name="editor" id="editor" onChange={this.handleChange}>
-            {this.state.input}
-          </textarea>
+      <>
+        <header>
+          <h1 id="title">Markdown Previewer</h1>
+          <a href="#">GitHub</a>
+        </header>
+        <div className="container">
+          <div className="subcontainer">
+            <h2>Input</h2>
+            <textarea name="editor" id="editor" onChange={this.handleChange}>
+              {this.state.input}
+            </textarea>
+          </div>
+          <div className="subcontainer">
+            <h2>Preview</h2>
+            <div
+              id="preview"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(this.state.preview)
+              }}
+            ></div>
+          </div>
         </div>
-        <div>
-          <h2>Preview</h2>
-          <div
-            id="preview"
-            dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(this.state.preview)
-            }}
-          ></div>
-        </div>
-      </div>
+      </>
     );
   }
 }
