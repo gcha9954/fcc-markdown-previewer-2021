@@ -46,7 +46,7 @@ body {
   flex-grow: 1;
   flex-shrink: 1;
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid #cdcdcd;
   resize: none;
   overflow: auto;
 }
